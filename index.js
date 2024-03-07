@@ -3,7 +3,7 @@ const app = express()
 const PORT = 3010
 
 app.get("/",(req,res)=>{
-    res.json({message:"hfcnhdhghdshcgho"})
+    res.json({message:"backend"})
 })
 
 app.listen(PORT,()=>console.log("server running...."))
