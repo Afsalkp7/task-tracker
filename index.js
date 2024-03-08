@@ -7,11 +7,7 @@ const mongoose = require("./database/connect");
 const userRoutes = require ("./routes/user")
 const taskRoutes = require("./routes/task")
 app.use(bodyParser.json());
-app.use(cors({
-    origin: 'http://localhost:5173',
-    methods: ['GET', 'POST' , 'PUT' , 'DELETE'], 
-    allowedHeaders: ['Content-Type', 'Authorization'] // Add other allowed headers as needed
-  }));
+app.use(cors());
 
 app.use('/user', userRoutes);
 app.use('/task', taskRoutes);
