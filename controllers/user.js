@@ -52,7 +52,6 @@ const signIn = async (req, res, next) => {
             "authtokenfortaskmanager",
             { expiresIn: "1h" }
           );
-          res.cookie("usersession", token);
           return res.status(200).json({ token, userId: userProfile._id });
         } else {
           return res.status(401).json({ error: "Invalid password" });
