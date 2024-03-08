@@ -49,7 +49,8 @@ const signIn = async (req, res, next) => {
         ) {
           const token = jwt.sign(
             { userId: userProfile._id },
-            "authtokenfortaskmanager"
+            "authtokenfortaskmanager",
+            { expiresIn: "24h" }
           );
           return res.status(200).json({ token, userId: userProfile._id });
         } else {
