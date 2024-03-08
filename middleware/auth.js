@@ -11,11 +11,15 @@ function auth(req, res, next) {
       try {
         const decoded = jwt.verify(token, secretKey);
         req.userId = decoded.userId;
+        console.log(req.userId);
         next();
+        
       } catch (error) {
-        res.status(401).json("error", { error: error });
+        return res.status(401).json("error", { error: error });
       }
     }
 }
+
+
 
 module.exports = { auth };
