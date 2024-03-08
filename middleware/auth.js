@@ -12,7 +12,7 @@ function auth(req, res, next) {
         req.userId = decoded.userId;
         next();
       } catch (error) {
-        res.status(401).render("error", { error: error });
+        res.status(401).json("error", { error: error });
       }
     }
 }
