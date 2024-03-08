@@ -49,7 +49,7 @@ const signIn = async (req, res, next) => {
         ) {
           const token = jwt.sign(
             { userId: userProfile._id },
-            process.env.authSecretKey,
+            "authtokenfortaskmanager",
             { expiresIn: "1h" }
           );
           res.cookie("usersession", token);
