@@ -15,7 +15,8 @@ function auth(req, res, next) {
         next();
         
       } catch (error) {
-        return res.status(401).json("error", { error: error });
+        res.status(401).json({ error: error });
+
       }
     }
 }
