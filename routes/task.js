@@ -9,5 +9,9 @@ const router = express.Router();
  */
 router.get('/', auth , taskController.showTasks);
 
+/**
+ * CREATE TASKS
+ */
+router.post("/",auth,taskController.addTasks)
 module.exports = router;
 
