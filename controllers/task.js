@@ -9,6 +9,9 @@ const showTasks = async (req,res) =>{
     res.json(tasks)
 }
 
+/*
+ * ADD TASKS
+ */
 const addTasks = async (req, res) => {
     try {
         const { title, desc } = req.body;
@@ -24,6 +27,34 @@ const addTasks = async (req, res) => {
         res.status(500).json({ message: "Internal server error" });
     }
 };
+
+/**
+ * TASK UPDATE
+ */
+const updateTask = async (req,res) => {
+    const taskId = req.params.id;
+    const { title, desc, status } = req.body;
+    try {
+        const updatedTask = await taskCollection.updateOne({_id:taskId},{$set:{
+            title,
+            desc,
+            status
+        }})
+        if(updatedTask){
+            const userId = req.userId;
+            const tasks = await taskCollection.find({userId})
+            res.json(tasks)
+        }else{
+            res.json({message:"can't update"})
+        }
+    } catch (error) {
+        console.error("Error updating task:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+   
+}
+
+
 
 const deleteTasks = async (req,res) => {
     const taskId = req.params.id;

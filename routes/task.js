@@ -17,7 +17,7 @@ router.post("/",auth,taskController.addTasks)
 /**
  * UPDATE TASKS
  */
-// router.put("/",taskController.updateTask)
+router.put("/:id",taskController.updateTask)
 
 /**
  * DELETE TASKS
