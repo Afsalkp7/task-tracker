@@ -9,9 +9,7 @@ const taskRoutes = require("./routes/task")
 
 
 app.use(bodyParser.json());
-app.use(cors({
-    origin: ['http://localhost:3010', 'http://localhost:5173']
-  }));
+app.use(cors());
 app.use('/user', userRoutes);
 app.use('/task', taskRoutes);
 
