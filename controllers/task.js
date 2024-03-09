@@ -71,5 +71,6 @@ const deleteTasks = async (req,res) => {
 module.exports = {
    showTasks,
    addTasks,
-   deleteTasks
+   deleteTasks,
+   updateTask
   };
