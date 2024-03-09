@@ -25,7 +25,20 @@ const addTasks = async (req, res) => {
     }
 };
 
+const deleteTasks = async (req,res) => {
+    const taskId = req.params.id;
+    const deletedTask = await taskCollection.deleteOne({_id:taskId})
+    if(deletedTask){
+        const userId = req.userId;
+        const tasks = await taskCollection.find({userId})
+        res.json(tasks)
+    }else{
+        res.json({message:"can't delete"})
+    }
+}
+
 module.exports = {
    showTasks,
-   addTasks
+   addTasks,
+   deleteTasks
   };

@@ -13,5 +13,16 @@ router.get('/', auth , taskController.showTasks);
  * CREATE TASKS
  */
 router.post("/",auth,taskController.addTasks)
+
+/**
+ * UPDATE TASKS
+ */
+// router.put("/",taskController.updateTask)
+
+/**
+ * DELETE TASKS
+ */
+router.delete("/:id",taskController.deleteTasks)
+
 module.exports = router;
 
