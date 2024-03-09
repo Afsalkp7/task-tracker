@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
-const secretKey = "authtokenfortaskmanager";
+const dotenv = require("dotenv")
+dotenv.config();
+const secretKey = process.env.authSecretKey;
 
 /**
  * AUTHENTICATION
