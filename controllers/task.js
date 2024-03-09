@@ -37,8 +37,6 @@ const updateTask = async (req,res) => {
     const { title, desc, status } = req.body;
     try {
         const updatedTask = await taskCollection.updateOne({_id:taskId},{$set:{
-            title,
-            desc,
             status
         }})
         if(updatedTask){
