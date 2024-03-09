@@ -1,7 +1,9 @@
 const jwt = require("jsonwebtoken");
 const secretKey = "authtokenfortaskmanager";
 
-
+/**
+ * AUTHENTICATION
+ */
 function auth(req, res, next) {
     const token = req.headers.authorization;
     if (!token) {
